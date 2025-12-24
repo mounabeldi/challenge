@@ -10,6 +10,11 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
+const Mouna_Test = require("./routes/test");
+
+app.use("/Mouna_Test", Mouna_Test);
+
+
 const server = app.listen(PORT, () => {
   console.log(`Server running`);
 });

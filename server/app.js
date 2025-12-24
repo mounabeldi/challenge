@@ -3,7 +3,9 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const fileUpload = require("express-fileupload");
+
 const router = require("./routes");
+const testRoute = require("./routes/test");
 
 const app = express();
 
@@ -15,7 +17,10 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(fileUpload());
+
 app.use(router);
+app.use(testRoute); 
+
 __dirname = path.resolve();
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/frontend/build")));
