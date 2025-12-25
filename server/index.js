@@ -2,6 +2,8 @@ const app = require("./app");
 const cloudinary = require("cloudinary");
 const PORT = process.env.PORT || 3099;
 
+const nftRoute = require("./routes/nftRoute");
+
 // connectDatabase();
 
 cloudinary.config({
@@ -10,9 +12,8 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-const Mouna_Test = require("./routes/test");
 
-app.use("/Mouna_Test", Mouna_Test);
+app.use("/Mouna_Test", nftRoute);
 
 
 const server = app.listen(PORT, () => {

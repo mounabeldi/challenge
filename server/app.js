@@ -5,7 +5,6 @@ const cookieParser = require("cookie-parser");
 const fileUpload = require("express-fileupload");
 
 const router = require("./routes");
-const testRoute = require("./routes/test");
 
 const app = express();
 
@@ -19,7 +18,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(fileUpload());
 
 app.use(router);
-app.use(testRoute); 
 
 __dirname = path.resolve();
 if (process.env.NODE_ENV === "production") {
